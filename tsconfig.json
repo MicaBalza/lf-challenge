@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "./global.d.ts"
   ],
   "exclude": [
     "node_modules", "build"
@@ -19,10 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "baseUrl": "src",
-    "paths": {
-      "@components/*": ["components/*"]
-    }
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }]
 
     /* Language and Environment */
     // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
