@@ -1,21 +1,26 @@
 import styles from './index.module.scss';
 
+import logo from '../../assets/img/liteflix-logo.svg';
+import menu from '../../assets/img/menu.svg';
+import bell from '../../assets/img/bell.svg';
+import profile from '../../assets/img/profile-avatar.svg';
+
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
-    <div className="left">
-        <div className='logo'>
-            LITEFLIX
+    <nav className={styles.nav}>
+      <div className={styles.navContent}>
+        <div className={styles.navContentLeft}>
+          <img src={logo} />
+          <p className={styles.addButton}>Agregar Película</p>
         </div>
-        <p>+ Agregar Película</p>
-    </div>
-    <div className="right">
-        <p>icono1</p>
-        <p>icono2</p>
-        <p>iconoPerfil</p>
-    </div>
-    </div>
-  )
+        <div className={styles.navContentRight}>
+          <img src={menu} />
+          <img src={bell} />
+          <img src={profile} />
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;

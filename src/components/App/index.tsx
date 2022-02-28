@@ -1,9 +1,9 @@
-import Home from '../../screens/Home';
+import AppRouter from '../Router';
 
 const App = () => {
   return (
-      <Home />
+    <AppRouter />
   );
-}
+};
 
 export default App;

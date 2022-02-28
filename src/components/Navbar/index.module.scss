@@ -1,0 +1,35 @@
+@import '../../scss/mixins.scss';
+
+.nav {
+    color: white;
+    position: fixed;
+    top: 0;
+    padding: 32px 104px;
+    width: 100%;
+}
+
+.navContent {
+    @include flex(space-between);
+}
+
+.navContentLeft, .navContentRight {
+    @include flex;
+}
+
+.navContentRight {
+    img {
+        margin-left: 40px;
+    }
+}
+
+.addButton {
+    font-size: 18px;
+    line-height: 1em;
+    letter-spacing: 4px;
+    margin-left: 64px;
+
+    &::before {
+        content: url('../../assets/img/plus.svg');
+        margin-right: 12px;
+    }
+}
