@@ -1,9 +1,32 @@
+@import '../../scss/variables/colors';
+
 .home {
-    background-color: black;
+    overflow: hidden;
+    width: 100%;
+}
+
+.backgroundImg {
+    position: absolute;
+    z-index: -1;
+    max-width: 100%;
+}
+
+.subheader {
     color: white;
-    height: 100vh;
+    text-transform: uppercase;
+    margin-left: 104px;
+    margin-top: 538px;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 4px;
 }
 
 .title {
-    padding-top: 70px;
+    color: $liteflix-green;
+    text-transform: uppercase;
+    margin-left: 104px;
+    margin-top: 32px;
+    font-size: 120px;
+    letter-spacing: 16px;
+    line-height: 100px;
 }
