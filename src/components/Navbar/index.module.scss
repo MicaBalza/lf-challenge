@@ -2,9 +2,9 @@
 
 .nav {
     color: white;
+    padding: 32px 104px;
     position: fixed;
     top: 0;
-    padding: 32px 104px;
     width: 100%;
 }
 
@@ -24,8 +24,8 @@
 
 .addButton {
     font-size: 18px;
-    line-height: 1em;
     letter-spacing: 4px;
+    line-height: 1em;
     margin-left: 64px;
 
     &::before {

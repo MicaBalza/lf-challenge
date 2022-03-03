@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'BebasNeueBook';
+    src: local('BebasNeueBook'),
+         url('../assets/fonts/BebasNeueBook.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'BebasNeueBold';
+    src: local('BebasNeueBold'),
+         url('../assets/fonts/BebasNeueBold.woff2') format('woff2');
+}
+
+
+// TODO: better naming
+.bold {
+    font-family: BebasNeueBold;
+}

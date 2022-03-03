@@ -13,7 +13,7 @@ const Home = () => {
       { data &&
         <div className={styles.home}>
           <img src={`${IMG_BASE_URL}${BACKDROP_SIZES.original}/${data.results[0].backdrop_path}`} className={styles.backgroundImg} />
-          <p className={styles.subheader}>Original de Liteflix</p>
+          <p className={styles.subheader}>Original de <span className="bold">Liteflix</span></p>
           <p className={styles.title}>{data.results[0].title}</p>
         </div>
       }
