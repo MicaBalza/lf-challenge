@@ -5,24 +5,33 @@ import Button from '../../components/Button';
 import styles from './index.module.scss';
 
 import { IMG_URL, IMG_SIZES } from '../../constants/imagesConfig';
+import MovieThumbnail from '../../components/MovieThumbnail';
 
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
   const { data} = useFetch(url);
-  
+
   return (
     <>
       { data &&
-        <div className={styles.home}>
-          <img
-            src={`${IMG_URL}${IMG_SIZES.original}/${data.results[0].backdrop_path}`} className={styles.backgroundImg}
-          />
+        <div className={styles.home} style={{ backgroundImage: `url(${IMG_URL}${IMG_SIZES.original}/${data.results[0].backdrop_path})`}}>
           <div className={styles.container}>
-            <p className={styles.subheader}>Original de <span className="bold">Liteflix</span></p>
-            <p className={styles.title}>{data.results[0].title}</p>
-            <div>
-              <Button text='Reproducir' />
-              <Button text='Reproducir' variant='outlined' className={styles.rightButton} />
+            <div className={styles.mainMovie}>
+              <p className={styles.subheader}>Original de <span className="bold">Liteflix</span></p>
+              <p className={styles.title}>{data.results[0].title}</p>
+              <div>
+                <Button text='Reproducir' />
+                <Button text='Reproducir' variant='outlined' className={styles.rightButton} />
+              </div>
+            </div>
+            <div className={styles.popularMovies}>
+              { data.results.slice(1,5).map((movie: any) => (
+                <MovieThumbnail
+                  key={movie.id}
+                  title={movie.title}
+                  imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
+                />
+              ))}
             </div>
           </div>
         </div>
