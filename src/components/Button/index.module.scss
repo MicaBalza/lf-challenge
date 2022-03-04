@@ -1,0 +1,35 @@
+@import '../../scss/variables/colors';
+
+.button {
+  font-size: 18px;
+  letter-spacing: 4px;
+  line-height: 20px;
+  padding: 22px 60px 20px;
+}
+
+.contained {
+  composes: button;
+  background-color: $liteflix-dark-grey;
+  color: white;
+
+  &:hover {
+    background-color: $not-black;
+    color: $liteflix-green;
+  }
+
+  &.disabled {
+    background-color: black;
+    pointer-events: none;
+  }
+}
+
+.outlined {
+  composes: button;
+  background-color: rgba($liteflix-dark-grey, .5);
+  border: 1px solid $white;
+  color: white;
+
+  &:hover {
+    color: $liteflix-green;
+  }
+}

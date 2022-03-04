@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import 'layout';
 @import 'fonts';
+@import './variables/colors';
 
 html {
   box-sizing: border-box;
@@ -11,6 +12,7 @@ html {
 }
 
 body {
+  background-color: $not-black;
   font-family: BebasNeueBook, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,4 +23,10 @@ body {
 // TODO: check this
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
+}
+
+button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
 }
