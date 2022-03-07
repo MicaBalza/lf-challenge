@@ -1,0 +1,40 @@
+@import '../../scss/variables/colors';
+
+.background {
+   background-color: rgba($liteflix-dark-grey, .7);
+   height: 100vh;
+   position: absolute;
+   width: 100%;
+   display: grid;
+   place-content: center;
+   z-index: 1;
+}
+
+.modal {
+    width: 730px;
+    background-color: $liteflix-dark-grey;
+    height: 300px;
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.title {
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-family: BebasNeueBold;
+    color: $liteflix-green;
+    margin-bottom: 48px;
+}
+
+.closeButton {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+}
