@@ -8,7 +8,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
   iconSrc?: string;
   text: string;
   type?: 'button' | 'submit';
-  variant?: 'contained' | 'outlined' ;
+  variant?: 'contained' | 'outlined' | 'text' ;
 }
 
 const Button = ({

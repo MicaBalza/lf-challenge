@@ -6,12 +6,13 @@
   line-height: 20px;
   min-width: 248px;
   padding: 22px 60px 20px;
+  color: $white;
+  cursor: pointer;
 }
 
 .contained {
   composes: button;
   background-color: $liteflix-dark-grey;
-  color: $white;
 
   &:hover {
     background-color: $almost-black;
@@ -28,7 +29,15 @@
   composes: button;
   background-color: rgba($liteflix-dark-grey, .2);
   border: 1px solid rgba($white, .5);
-  color: white;
+
+  &:hover {
+    color: $liteflix-green;
+  }
+}
+
+.text {
+  composes: button;
+  background-color: transparent;
 
   &:hover {
     color: $liteflix-green;
