@@ -4,13 +4,14 @@
   font-size: 18px;
   letter-spacing: 4px;
   line-height: 20px;
+  min-width: 248px;
   padding: 22px 60px 20px;
 }
 
 .contained {
   composes: button;
   background-color: $liteflix-dark-grey;
-  color: white;
+  color: $white;
 
   &:hover {
     background-color: $almost-black;
@@ -25,11 +26,15 @@
 
 .outlined {
   composes: button;
-  background-color: rgba($liteflix-dark-grey, .5);
-  border: 1px solid $white;
+  background-color: rgba($liteflix-dark-grey, .2);
+  border: 1px solid rgba($white, .5);
   color: white;
 
   &:hover {
     color: $liteflix-green;
   }
+}
+
+.icon {
+  margin-right: 12px;
 }

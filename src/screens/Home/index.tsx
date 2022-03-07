@@ -1,11 +1,14 @@
 import { useFetch } from '../../hooks/useFetch';
 
 import Button from '../../components/Button';
+import MovieThumbnail from '../../components/MovieThumbnail';
+
+import plus from '../../assets/img/plus.svg';
+import play from '../../assets/img/play.svg';
 
 import styles from './index.module.scss';
 
 import { IMG_URL, IMG_SIZES } from '../../constants/imagesConfig';
-import MovieThumbnail from '../../components/MovieThumbnail';
 
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
@@ -20,8 +23,8 @@ const Home = () => {
               <p className={styles.subheader}>Original de <span className="bold">Liteflix</span></p>
               <p className={styles.title}>{data.results[0].title}</p>
               <div>
-                <Button text='Reproducir' />
-                <Button text='Reproducir' variant='outlined' className={styles.rightButton} />
+                <Button text='Reproducir' iconSrc={play} />
+                <Button text='Mi lista' variant='outlined' className={styles.rightButton} iconSrc={plus} />
               </div>
             </div>
             <div className={styles.popularMovies}>

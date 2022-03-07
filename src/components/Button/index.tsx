@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 
 interface Props extends HTMLProps<HTMLButtonElement> {
   className?: string;
+  iconSrc?: string;
   text: string;
   type?: 'button' | 'submit';
   variant?: 'contained' | 'outlined' ;
@@ -13,6 +14,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
 const Button = ({
   className = '',
   disabled = false,
+  iconSrc = '',
   text,
   type = 'button',
   variant = 'contained',
@@ -25,10 +27,10 @@ const Button = ({
       type={type}
       onClick={onClick}
     >
+      {iconSrc && <img src={iconSrc} className={styles.icon} />}
       {text}
     </button>
   );
 };
 
 export default Button;
-
