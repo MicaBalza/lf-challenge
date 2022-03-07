@@ -1,6 +1,7 @@
 import { useFetch } from '../../hooks/useFetch';
 
 import Button from '../../components/Button';
+import Dropdown from '../../components/Dropdown';
 import MovieThumbnail from '../../components/MovieThumbnail';
 
 import plus from '../../assets/img/plus.svg';
@@ -9,6 +10,7 @@ import play from '../../assets/img/play.svg';
 import styles from './index.module.scss';
 
 import { IMG_URL, IMG_SIZES } from '../../constants/imagesConfig';
+import { DROPDOWN_OPTIONS } from './constants';
 
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
@@ -28,6 +30,7 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.popularMovies}>
+              <Dropdown options={DROPDOWN_OPTIONS} />
               { data.results.slice(1,5).map((movie: any) => (
                 <MovieThumbnail
                   key={movie.id}
