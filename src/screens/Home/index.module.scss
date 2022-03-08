@@ -1,4 +1,5 @@
 @import '../../scss/variables/colors';
+@import '../../scss/mixins.scss';
 
 .home {
     background-position: center;
@@ -15,11 +16,14 @@
     z-index: -1;
 }
 
-// TODO: maybe this can be a global class
 .container {
     display: flex;
     justify-content: space-between;
     padding: 152px 104px 0;
+
+    @include md {
+        flex-direction: column;
+    }
 }
 
 .popularMovies {

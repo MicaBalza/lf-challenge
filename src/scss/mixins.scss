@@ -1,6 +1,20 @@
+@import './variables/breakpoints';
+
 @mixin flex ($justify: center, $align: center, $direction: row) {
     align-items: $align;
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
   }
+
+@mixin sm {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
