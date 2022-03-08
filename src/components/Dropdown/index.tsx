@@ -9,14 +9,14 @@ interface Props {
 
 const Dropdown = ({ options }: Props) => {
   return (
-    <>
+    <div className={styles.container}>
       <label htmlFor="dropdown">Ver:</label>
       <select className={styles.dropdown} id="dropdown">
         { options.map(option => (
           <option key={option.value} value={option.value}>{option.text}</option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 

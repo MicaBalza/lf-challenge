@@ -1,3 +1,23 @@
-.dropdown {
+@import '../../scss/variables/colors';
 
+.container {
+    display: flex;
+    font-size: 18px;
+    color: $white;
+    letter-spacing: 4px;
+    
+}
+
+.dropdown {
+    background-color: transparent;
+    border: none;
+    font-family: BebasNeueBold;
+    font-size: 18px;
+    color: $white;
+    letter-spacing: 4px;
+    position: relative;
+
+    &:focus-visible {
+        outline: none;
+    }
 }

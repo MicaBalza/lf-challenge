@@ -1,4 +1,4 @@
-import play from '../../assets/img/play.svg';
+import play from '../../assets/img/play-circle.svg';
 
 import styles from './index.module.scss';
 
