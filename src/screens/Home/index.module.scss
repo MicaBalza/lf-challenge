@@ -26,7 +26,7 @@
     }
 }
 
-.popularMovies {
+.movies {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,4 +55,8 @@
 
 .rightButton {
     margin-left: 24px;
+}
+
+.movie {
+    margin-bottom: 20px;
 }

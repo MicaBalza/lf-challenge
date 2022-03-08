@@ -5,11 +5,12 @@ import styles from './index.module.scss';
 interface Props {
     title: string;
     imgUrl?: string;
+    className?: string;
 }
 
-const MovieThumbnail = ({ title, imgUrl }: Props) => {
+const MovieThumbnail = ({ title, imgUrl, className }: Props) => {
   return (
-    <div className={styles.container} style={{ backgroundImage: `url(${imgUrl})`}}>
+    <div className={`${styles.container} ${className}`} style={{ backgroundImage: `url(${imgUrl})`}}>
       <div className={styles.gradient} />
       <div className={styles.content}>
         <img src={play} className={styles.playIcon} />

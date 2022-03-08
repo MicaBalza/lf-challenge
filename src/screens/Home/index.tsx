@@ -29,13 +29,14 @@ const Home = () => {
                 <Button text='Mi lista' variant='outlined' className={styles.rightButton} iconSrc={plus} />
               </div>
             </div>
-            <div className={styles.popularMovies}>
+            <div className={styles.movies}>
               <Dropdown options={DROPDOWN_OPTIONS} className={styles.dropdown} />
               { data.results.slice(1,5).map((movie: any) => (
                 <MovieThumbnail
                   key={movie.id}
                   title={movie.title}
                   imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
+                  className={styles.movie}
                 />
               ))}
             </div>
