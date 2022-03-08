@@ -1,23 +1,57 @@
 @import '../../scss/variables/colors';
 
 .container {
-    display: flex;
-    font-size: 18px;
-    color: $white;
-    letter-spacing: 4px;
-    
-}
-
-.dropdown {
-    background-color: transparent;
-    border: none;
-    font-family: BebasNeueBold;
     font-size: 18px;
     color: $white;
     letter-spacing: 4px;
     position: relative;
+    width: 100%;
+    text-align: center;
+    padding-right: 18px;
+}
 
-    &:focus-visible {
-        outline: none;
+.dropdown {
+    background-color: $liteflix-dark-grey;
+    position: absolute;
+    top: 28px;
+    right: 0;
+    z-index: 1;
+    width: 240px;
+    text-align: left;
+    padding: 24px;
+    font-size: 16px;
+    filter: drop-shadow(0px 18px 43px rgba(36, 36, 36, 0.3));
+
+    div:first-child {
+        margin-bottom: 16px;
+    }
+
+    .option {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &::before {
+        content: '';
+        width: 0; 
+        height: 0; 
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid $liteflix-dark-grey;
+        position: absolute;
+        top: -6px;
+        right: 30px;
+    }
+}
+
+.label {
+    position: relative;
+
+    &::after {
+        content: url(../../assets/img/arrow-down.svg);
+        font-family: BebasNeueBold;
+        position: absolute;
+        bottom: 2px;
+        right: -18px;
     }
 }

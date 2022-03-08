@@ -29,6 +29,11 @@
 .popularMovies {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.dropdown {
+    margin-bottom: 32px;
 }
 
 .subheader {

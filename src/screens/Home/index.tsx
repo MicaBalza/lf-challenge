@@ -30,7 +30,7 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.popularMovies}>
-              <Dropdown options={DROPDOWN_OPTIONS} />
+              <Dropdown options={DROPDOWN_OPTIONS} className={styles.dropdown} />
               { data.results.slice(1,5).map((movie: any) => (
                 <MovieThumbnail
                   key={movie.id}
