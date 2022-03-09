@@ -1,9 +1,15 @@
+import { HTMLProps } from 'react';
+
 import styles from './index.module.scss';
 
-const FileInput = () => {
+interface Props extends HTMLProps<HTMLInputElement> {
+  className?: string;
+}
+
+const FileInput = ({ className, accept }: Props) => {
   return (
-    <label className={styles.input}>
-      <input type="file" accept="image/png, image/jpeg"/>
+    <label className={`${styles.input} ${className}`}>
+      <input type="file" accept={accept} />
       <span className="bold">Agregá un archivo </span>o arrastralo y soltalo aquí
     </label>
   );

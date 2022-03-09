@@ -1,5 +1,6 @@
 import Button from '../Button';
 import FileInput from '../FileInput';
+import TextInput from '../TextInput';
 
 import closeButton from '../../assets/img/close.svg';
 
@@ -26,7 +27,8 @@ const Modal = ({ isVisible, onClose }: Props) => {
         <div className={styles.modal}>
           <img src={closeButton} className={styles.closeButton} onClick={onClose} />
           <p className={styles.title}>Agregar película</p>
-          <FileInput />
+          <FileInput className={styles.input} accept="image/png, image/jpeg" />
+          <TextInput className={styles.input} placeholder="Título" />
           <Button text="Subir Película" onClick={handleClick} disabled />
         </div>
       </div>
