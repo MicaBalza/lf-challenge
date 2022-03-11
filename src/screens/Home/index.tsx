@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 
 import Button from '../../components/Button';
@@ -14,7 +15,9 @@ import { DROPDOWN_OPTIONS } from './constants';
 
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
-  const { data} = useFetch(url);
+  const { data } = useFetch(url);
+
+  const [movieCategory, setMovieCategory] = useState('popular');
 
   return (
     <>
@@ -30,14 +33,15 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.movies}>
-              <Dropdown options={DROPDOWN_OPTIONS} className={styles.dropdown} />
-              { data.results.slice(1,5).map((movie: any) => (
-                <MovieThumbnail
-                  key={movie.id}
-                  title={movie.title}
-                  imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
-                  className={styles.movie}
-                />
+              <Dropdown options={DROPDOWN_OPTIONS} className={styles.dropdown} setOption={setMovieCategory} />
+              { movieCategory === 'popular' &&
+                data.results.slice(1,5).map((movie: any) => (
+                  <MovieThumbnail
+                    key={movie.id}
+                    title={movie.title}
+                    imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
+                    className={styles.movie}
+                  />
               ))}
             </div>
           </div>

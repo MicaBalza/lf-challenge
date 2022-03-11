@@ -6,14 +6,15 @@ import styles from './index.module.scss';
 
 interface Props {
   className?: string;
-    options: {
-        text: string,
-        value: string
-    }[];
+  options: {
+      text: string,
+      value: string
+  }[];
+  setOption: (option: string) => void;
 }
 
-const Dropdown = ({ className, options }: Props) => {
-  const [option, setOption] = useState('popular');
+const Dropdown = ({ className, options, setOption }: Props) => {
+  const [dropdownOption, setDropdownOption] = useState('popular');
   const [showDropdown, setshowDropdown] = useState(false);
 
   const handleShowDropdown = () => {
@@ -21,6 +22,7 @@ const Dropdown = ({ className, options }: Props) => {
   };
 
   const handleOptionClick = (option: any) => {
+    setDropdownOption(option);
     setOption(option);
     handleShowDropdown();
   };
@@ -29,15 +31,15 @@ const Dropdown = ({ className, options }: Props) => {
     <div className={`${styles.container} ${className}`}>
       <div onClick={handleShowDropdown}>
         <p>Ver:
-          <span className={`${styles.label} bold`}> {options[options.findIndex(opt => opt.value === option)]?.text}</span>
+          <span className={`${styles.label} bold`}> {options[options.findIndex(opt => opt.value === dropdownOption)]?.text}</span>
         </p>
       </div>
       { showDropdown && <div className={styles.dropdown}>
         { options.map(opt => (
           <div key={opt.value} onClick={() => handleOptionClick(opt.value)} className={styles.option}>
-            <label htmlFor={opt.value} className={opt.value === option ? 'bold' : ''}>{opt.text}</label>
+            <label htmlFor={opt.value} className={opt.value === dropdownOption ? 'bold' : ''}>{opt.text}</label>
             <input type="radio" name="movieGroup" value={opt.value} id={opt.value} hidden />
-            {opt.value === option && <img src={check}/>}
+            {opt.value === dropdownOption && <img src={check}/>}
           </div>
         )) }
       </div> }
