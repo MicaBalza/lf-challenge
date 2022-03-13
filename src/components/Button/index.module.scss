@@ -27,8 +27,8 @@
 
 .outlined {
   composes: button;
-  background-color: rgba($liteflix-dark-grey, .5);
-  border: 1px solid rgba($white, .5);
+  background-color: rgba($liteflix-dark-grey, 0.5);
+  border: 1px solid rgba($white, 0.5);
 
   &:hover {
     color: $liteflix-green;
@@ -46,4 +46,9 @@
 
 .icon {
   margin-right: 12px;
+}
+
+.noText {
+  padding: 0;
+  min-width: 0;
 }

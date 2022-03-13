@@ -1,23 +1,52 @@
 @import '../../scss/mixins.scss';
 
 .nav {
-    color: white;
-    padding: 32px 104px;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  color: white;
+  padding: 32px 104px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  @include sm {
+    padding: 16px 24px;
+    width: 100vw;
+  }
 }
 
 .navContent {
-    @include flex(space-between);
-}
+  @include flex(flex-start);
 
-.navContentLeft, .navContentRight {
-    @include flex;
-}
-
-.navContentRight {
-    img {
-        margin-left: 40px;
+  .logo {
+    @include sm {
+      width: 98px;
     }
+  }
+
+  .addMovie {
+    @include sm {
+      order: -1;
+    }
+  }
+
+  .navButtons {
+    @include flex;
+    margin-left: auto;
+
+    .menu,
+    .notifications {
+      margin-right: 40px;
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    @include sm {
+      margin-left: 0;
+    }
+  }
+
+  @include sm {
+    justify-content: space-between;
+  }
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+
 // import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 import Button from '../../components/Button';
@@ -25,32 +26,52 @@ const Home = () => {
 
   return (
     <>
-      { data &&
-        <div className={styles.home} style={{ backgroundImage: `url(${IMG_URL}${IMG_SIZES.original}/${data.results[0].backdrop_path})`}}>
+      {data && (
+        <div
+          className={styles.home}
+          style={{
+            backgroundImage: `url(${IMG_URL}${IMG_SIZES.original}/${data.results[0].backdrop_path})`,
+          }}
+        >
           <div className={styles.container}>
             <div className={styles.mainMovie}>
-              <p className={styles.subheader}>Original de <span className="bold">Liteflix</span></p>
+              <p className={styles.subheader}>
+                Original de <span className="bold">Liteflix</span>
+              </p>
               <p className={styles.title}>{data.results[0].title}</p>
               <div>
-                <Button text='Reproducir' iconSrc={play} />
-                <Button text='Mi lista' variant='outlined' className={styles.rightButton} iconSrc={plus} />
+                <Button text="Reproducir" iconSrc={play} />
+                <Button
+                  text="Mi lista"
+                  variant="outlined"
+                  className={styles.rightButton}
+                  iconSrc={plus}
+                />
               </div>
             </div>
-            <div className={styles.movies}>
-              <Dropdown options={DROPDOWN_OPTIONS} className={styles.dropdown} setOption={setMovieCategory} />
-              { movieCategory === 'popular' &&
-                data.results.slice(1,5).map((movie: any) => (
-                  <MovieThumbnail
-                    key={movie.id}
-                    title={movie.title}
-                    imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
-                    className={styles.movie}
-                  />
-              ))}
+            <div className={styles.otherMovies}>
+              <Dropdown
+                options={DROPDOWN_OPTIONS}
+                className={styles.dropdown}
+                setOption={setMovieCategory}
+              />
+              <div className={styles.movies}>
+                {movieCategory === 'popular' &&
+                  data.results
+                    .slice(1, 5)
+                    .map((movie: any) => (
+                      <MovieThumbnail
+                        key={movie.id}
+                        title={movie.title}
+                        imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
+                        className={styles.movie}
+                      />
+                    ))}
+              </div>
             </div>
           </div>
         </div>
-      }
+      )}
     </>
   );
 };

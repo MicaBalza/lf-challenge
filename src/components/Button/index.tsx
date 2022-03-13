@@ -6,9 +6,9 @@ import styles from './index.module.scss';
 interface Props extends HTMLProps<HTMLButtonElement> {
   className?: string;
   iconSrc?: string;
-  text: string;
+  text?: string;
   type?: 'button' | 'submit';
-  variant?: 'contained' | 'outlined' | 'text' ;
+  variant?: 'contained' | 'outlined' | 'text';
 }
 
 const Button = ({
@@ -18,11 +18,16 @@ const Button = ({
   text,
   type = 'button',
   variant = 'contained',
-  onClick 
+  onClick,
 }: Props) => {
   return (
     <button
-      className={classNames(styles[variant], { [styles.disabled]: disabled }, className)}
+      className={classNames(
+        styles[variant],
+        { [styles.disabled]: disabled },
+        { [styles.noText]: !text },
+        className
+      )}
       disabled={disabled}
       type={type}
       onClick={onClick}
