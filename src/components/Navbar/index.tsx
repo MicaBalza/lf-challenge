@@ -29,6 +29,7 @@ const Navbar = () => {
             text={!isMobile ? 'Agregar Película' : ''}
             variant="text"
             iconSrc={isMobile ? plusCircle : plus}
+            iconAltText="Agregar Película"
             onClick={handleClick}
             className={styles.addMovie}
           />
@@ -39,7 +40,7 @@ const Navbar = () => {
               alt="Notificaciones"
               className={styles.notifications}
             />
-            <img src={profile} alt="Mi perfil" />
+            <img src={profile} alt="Mi perfil" className={styles.profile} />
           </div>
         </div>
       </nav>

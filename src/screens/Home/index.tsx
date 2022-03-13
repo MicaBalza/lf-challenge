@@ -44,7 +44,7 @@ const Home = () => {
                 <Button
                   text="Mi lista"
                   variant="outlined"
-                  className={styles.rightButton}
+                  className={styles.secondaryButton}
                   iconSrc={plus}
                 />
               </div>

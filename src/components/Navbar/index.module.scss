@@ -3,9 +3,10 @@
 .nav {
   color: white;
   padding: 32px 104px;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
+  z-index: 1;
 
   @include sm {
     padding: 16px 24px;
@@ -38,6 +39,12 @@
 
       @include sm {
         display: none;
+      }
+    }
+
+    .profile {
+      @include sm {
+        width: 36px;
       }
     }
 
