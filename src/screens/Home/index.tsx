@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+// import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';
@@ -16,6 +17,9 @@ import { DROPDOWN_OPTIONS } from './constants';
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
   const { data } = useFetch(url);
+
+  // const [myMovies] = useLocalStorage('h', '');
+  // console.log(myMovies);
 
   const [movieCategory, setMovieCategory] = useState('popular');
 

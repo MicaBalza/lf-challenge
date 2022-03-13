@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 import Button from '../Button';
@@ -17,19 +18,20 @@ interface Props {
 }
 
 const Modal = ({ isVisible, onClose }: Props) => {
-  const [, setValue] = useLocalStorage('imagen', '');
+  const [title, setTitle] = useState('');
+  const [img, setImg] = useState('');
+  const [, setValue] = useLocalStorage(title, '');
 
   const handleClick = () => {
-    console.log('click');
+    setValue(img);
   };
 
-  const handleFileUpload = (e: any) => {
-    console.log(e.target.value);
-    setValue(e.target.value);
+  const handleFileUpload = (convertedFile: string) => {
+    setImg(convertedFile);
   };
 
   const handleInputChange = (e: any) => {
-    console.log(e.target.value);
+    setTitle(e.target.value);
   };
 
   return (
@@ -37,11 +39,11 @@ const Modal = ({ isVisible, onClose }: Props) => {
       {isVisible &&
       <div className={styles.background}>
         <div className={styles.modal}>
-          <img src={closeButton} className={styles.closeButton} onClick={onClose} />
+          <img src={closeButton} className={styles.closeButton} onClick={onClose} alt="Cerrar" />
           <p className={styles.title}>Agregar película</p>
-          <FileInput className={styles.input} accept="image/png, image/jpeg" onChange={handleFileUpload} />
+          <FileInput className={styles.input} accept="image/png, image/jpeg" getTransformedFile={handleFileUpload} />
           <TextInput className={styles.input} placeholder="Título" onChange={handleInputChange} />
-          <Button text="Subir Película" onClick={handleClick} disabled />
+          <Button text="Subir Película" onClick={handleClick} disabled={!img || !title} />
         </div>
       </div>
       }
