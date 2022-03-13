@@ -1,0 +1,29 @@
+@import '../../scss/variables/colors';
+
+.label {
+    text-align: left;
+    color: $white;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+}
+
+.containerStyles {
+    height: 4px;
+    width: 100%;
+    background-color: rgba($white, .5);
+    position: relative;
+  }
+
+.fillerStyles {
+    position: absolute;
+    height: 10px;
+    background-color: $liteflix-green;
+    top: -4px;
+    transition: width 0.05s ease-in-out;
+  }
+
+.labelStyles {
+    padding: 5;
+    color: white;
+    font-weight: bold;
+  }
