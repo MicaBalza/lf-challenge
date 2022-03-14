@@ -1,8 +1,12 @@
 import styles from './index.module.scss';
 
-const Spinner = () => {
+interface Props {
+  className?: string;
+}
+
+const Spinner = ({ className = '' }: Props) => {
   return (
-    <div className={styles.spinner}>
+    <div className={`${styles.spinner} ${className}`}>
       <div></div>
       <div></div>
     </div>

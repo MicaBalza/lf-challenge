@@ -1,6 +1,8 @@
+@import '../../scss/variables/animations';
 @import '../../scss/mixins.scss';
 
 .nav {
+  animation: fadeInDown 3s;
   color: white;
   padding: 32px 104px;
   position: absolute;

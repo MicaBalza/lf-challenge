@@ -104,7 +104,12 @@ const Modal = ({ isVisible, onClose }: Props) => {
               className={styles.uploadButton}
             />
             {isMobile && (
-              <Button text="Salir" onClick={handleClose} variant="outlined" />
+              <Button
+                text="Salir"
+                onClick={handleClose}
+                variant="outlined"
+                className={styles.exitButton}
+              />
             )}
           </div>
         </div>

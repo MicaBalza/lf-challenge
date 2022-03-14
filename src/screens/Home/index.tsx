@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import classNames from 'classnames';
 
 import { useFetch } from '../../hooks/useFetch';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -16,9 +17,7 @@ import { DROPDOWN_OPTIONS } from './constants';
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
   const { data, loading } = useFetch(url);
-
   const [myMovies] = useLocalStorage('userMovies', '');
-
   const [movieCategory, setMovieCategory] = useState('popular');
 
   const moviesList = useMemo(() => {
@@ -48,11 +47,13 @@ const Home = () => {
 
   return (
     <>
-      {loading && (
-        <div className={styles.splash}>
-          <Spinner />
-        </div>
-      )}
+      <div
+        className={classNames(styles.splash, {
+          [styles.hideSplash]: !loading,
+        })}
+      >
+        <Spinner className={styles.spinner} />
+      </div>
       {data && (
         <div
           className={styles.home}
@@ -66,7 +67,7 @@ const Home = () => {
                 Original de <span className="bold">Liteflix</span>
               </p>
               <p className={styles.title}>{data.results[0].title}</p>
-              <div>
+              <div className={styles.buttons}>
                 <Button text="Reproducir" iconSrc={play} />
                 <Button
                   text="Mi lista"
