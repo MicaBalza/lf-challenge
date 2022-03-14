@@ -38,6 +38,8 @@ const Home = () => {
             ? `${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`
             : movie.img
         }
+        rating={movie.vote_average || '-'}
+        year={movie.release_date?.slice(0, 4) || '-'}
         className={styles.movie}
       />
     ));

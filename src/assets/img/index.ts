@@ -10,3 +10,4 @@ export { default as play } from './play.svg';
 export { default as plusCircle } from './plus-circle.svg';
 export { default as plus } from './plus.svg';
 export { default as profileAvatar } from './profile-avatar.svg';
+export { default as star } from './star.svg';
