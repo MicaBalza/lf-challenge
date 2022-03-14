@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import check from '../../assets/img/check.svg';
+import { check } from '../../assets/img';
 
 import styles from './index.module.scss';
 

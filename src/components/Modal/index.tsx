@@ -6,8 +6,7 @@ import Button from '../Button';
 import FileInput from '../FileInput';
 import TextInput from '../TextInput';
 
-import closeButton from '../../assets/img/close.svg';
-import logo from '../../assets/img/liteflix-logo.svg';
+import { close, liteflixLogo } from '../../assets/img';
 
 import styles from './index.module.scss';
 
@@ -56,7 +55,7 @@ const Modal = ({ isVisible, onClose }: Props) => {
           <div className={styles.modal}>
             {!isMobile && (
               <img
-                src={closeButton}
+                src={close}
                 className={styles.closeButton}
                 onClick={handleClose}
                 alt="Cerrar"
@@ -64,7 +63,7 @@ const Modal = ({ isVisible, onClose }: Props) => {
             )}
             {isUploaded ? (
               <>
-                <img src={logo} alt="Liteflix logo" />
+                <img src={liteflixLogo} alt="Liteflix logo" />
               </>
             ) : (
               <>

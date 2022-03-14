@@ -1,4 +1,4 @@
-import play from '../../assets/img/play-circle.svg';
+import { playCircle } from '../../assets/img';
 
 import styles from './index.module.scss';
 
@@ -17,7 +17,7 @@ const MovieThumbnail = ({ title, imgUrl, className }: Props) => {
       <div className={styles.gradient} />
       <div className={styles.content}>
         <img
-          src={play}
+          src={playCircle}
           className={styles.playIcon}
           alt={`Reproducir ${title}`}
         />

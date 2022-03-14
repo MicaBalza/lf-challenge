@@ -1,0 +1,12 @@
+export { default as arrowDown } from './arrow-down.svg';
+export { default as bell } from './bell.svg';
+export { default as check } from './check.svg';
+export { default as clip } from './clip.svg';
+export { default as close } from './close.svg';
+export { default as liteflixLogo } from './liteflix-logo.svg';
+export { default as menu } from './menu.svg';
+export { default as playCircle } from './play-circle.svg';
+export { default as play } from './play.svg';
+export { default as plusCircle } from './plus-circle.svg';
+export { default as plus } from './plus.svg';
+export { default as profileAvatar } from './profile-avatar.svg';

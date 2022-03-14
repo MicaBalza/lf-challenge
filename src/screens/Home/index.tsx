@@ -6,8 +6,7 @@ import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';
 import MovieThumbnail from '../../components/MovieThumbnail';
 
-import plus from '../../assets/img/plus.svg';
-import play from '../../assets/img/play.svg';
+import { plus, play } from '../../assets/img';
 
 import styles from './index.module.scss';
 
