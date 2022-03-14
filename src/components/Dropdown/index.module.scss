@@ -1,57 +1,74 @@
 @import '../../scss/variables/colors';
+@import '../../scss/mixins.scss';
 
 .container {
-    font-size: 18px;
-    color: $white;
-    letter-spacing: 4px;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 4px;
+  padding-right: 18px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  @include sm {
     position: relative;
-    width: 100%;
-    text-align: center;
-    padding-right: 18px;
+  }
 }
 
 .dropdown {
-    background-color: $liteflix-dark-grey;
+  background-color: $liteflix-dark-grey;
+  filter: drop-shadow(0px 18px 43px rgba(36, 36, 36, 0.3));
+  font-size: 16px;
+  padding: 24px;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  top: 28px;
+  width: 240px;
+  z-index: 3;
+
+  div:first-child {
+    margin-bottom: 16px;
+  }
+
+  .option {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &::before {
+    border-bottom: 6px solid $liteflix-dark-grey;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: '';
+    height: 0;
     position: absolute;
-    top: 28px;
-    right: 0;
-    z-index: 1;
-    width: 240px;
-    text-align: left;
-    padding: 24px;
-    font-size: 16px;
-    filter: drop-shadow(0px 18px 43px rgba(36, 36, 36, 0.3));
+    right: 30px;
+    top: -6px;
+    width: 0;
+  }
 
-    div:first-child {
-        margin-bottom: 16px;
-    }
-
-    .option {
-        display: flex;
-        justify-content: space-between;
-    }
+  @include sm {
+    bottom: 0;
+    position: fixed;
+    top: auto;
+    width: 100vw;
 
     &::before {
-        content: '';
-        width: 0; 
-        height: 0; 
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-bottom: 6px solid $liteflix-dark-grey;
-        position: absolute;
-        top: -6px;
-        right: 30px;
+      content: none;
     }
+  }
 }
 
 .label {
-    position: relative;
+  position: relative;
 
-    &::after {
-        content: url(../../assets/img/arrow-down.svg);
-        font-family: BebasNeueBold;
-        position: absolute;
-        bottom: 2px;
-        right: -18px;
-    }
+  &::after {
+    bottom: 2px;
+    content: url(../../assets/img/arrow-down.svg);
+    font-family: BebasNeueBold;
+    position: absolute;
+    right: -18px;
+  }
 }
