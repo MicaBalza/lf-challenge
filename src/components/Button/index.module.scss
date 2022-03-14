@@ -1,13 +1,13 @@
 @import '../../scss/variables/colors';
 
 .button {
+  color: $white;
+  cursor: pointer;
   font-size: 18px;
   letter-spacing: 4px;
   line-height: 20px;
   min-width: 248px;
   padding: 22px 60px 20px;
-  color: $white;
-  cursor: pointer;
 }
 
 .contained {
@@ -20,7 +20,9 @@
   }
 
   &.disabled {
-    background-color: black;
+    background-color: $white;
+    color: $liteflix-dark-grey;
+    opacity: 0.5;
     pointer-events: none;
   }
 }
@@ -49,7 +51,7 @@
 }
 
 .noText {
-  padding: 0;
-  min-width: 0;
   height: 36px;
+  min-width: 0;
+  padding: 0;
 }

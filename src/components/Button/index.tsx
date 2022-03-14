@@ -21,6 +21,7 @@ const Button = ({
   type = 'button',
   variant = 'contained',
   onClick,
+  hidden,
 }: Props) => {
   return (
     <button
@@ -33,6 +34,7 @@ const Button = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
+      hidden={hidden}
     >
       {iconSrc && (
         <img src={iconSrc} className={styles.icon} alt={iconAltText} />

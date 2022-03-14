@@ -39,3 +39,7 @@ button {
   display: inline-block;
   font-family: inherit;
 }
+
+*[hidden] {
+  visibility: hidden;
+}

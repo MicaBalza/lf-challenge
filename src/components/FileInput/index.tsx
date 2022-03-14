@@ -1,4 +1,5 @@
-import { HTMLProps, useState } from 'react';
+import { ChangeEvent, HTMLProps, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 
 import ProgressBar from '../ProgressBar';
 
@@ -12,25 +13,33 @@ interface Props extends HTMLProps<HTMLInputElement> {
 }
 
 const FileInput = ({ className, accept, getTransformedFile }: Props) => {
-	const [isFilePicked, setIsFilePicked] = useState(false);
+  const [isFilePicked, setIsFilePicked] = useState(false);
 
-  const handleChange = (e: any) => {
-    const file = e.target.files[0];
-    imageUploaded(file).then(base64 => getTransformedFile(base64));
-		setIsFilePicked(true);
-	};
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    imageUploaded(file).then((base64) => getTransformedFile(base64));
+    setIsFilePicked(true);
+  };
+
+  const labelText = isMobile ? (
+    <span>Agregá un archivo</span>
+  ) : (
+    <>
+      <span className="bold">Agregá un archivo</span> o arrastralo y soltalo
+      aquí
+    </>
+  );
 
   return (
     <div className={className}>
-      {isFilePicked
-        ?
+      {isFilePicked ? (
         <ProgressBar />
-        :
+      ) : (
         <label className={styles.input}>
           <input type="file" accept={accept} onChange={handleChange} />
-          <span className="bold">Agregá un archivo </span>o arrastralo y soltalo aquí
+          {labelText}
         </label>
-      }
+      )}
     </div>
   );
 };

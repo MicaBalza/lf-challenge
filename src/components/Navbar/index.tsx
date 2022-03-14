@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { isMobile } from 'react-device-detect';
+import classNames from 'classnames';
 
 import Button from '../Button';
 import Modal from '../Modal';
@@ -31,7 +32,8 @@ const Navbar = () => {
             iconSrc={isMobile ? plusCircle : plus}
             iconAltText="Agregar Película"
             onClick={handleClick}
-            className={styles.addMovie}
+            className={classNames(styles.addMovie)}
+            hidden={showModal}
           />
           <div className={styles.navButtons}>
             <img src={menu} alt="Menú" className={styles.menu} />

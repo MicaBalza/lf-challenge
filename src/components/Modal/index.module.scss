@@ -1,43 +1,62 @@
 @import '../../scss/variables/colors';
+@import '../../scss/mixins.scss';
 
 .background {
-   background-color: rgba($liteflix-dark-grey, .7);
-   height: 100vh;
-   position: absolute;
-   width: 100%;
-   display: grid;
-   place-content: center;
-   z-index: 1;
+  background-color: rgba($liteflix-dark-grey, 0.7);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 .modal {
-    width: 730px;
-    background-color: $liteflix-dark-grey;
-    padding: 48px 64px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-    position: relative;
+  align-content: center;
+  background-color: $liteflix-dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 64px;
+  position: relative;
+  text-align: center;
+  width: 730px;
+
+  @include sm {
+    height: 100vh;
+    padding: 0 24px;
+    width: 100vw;
+  }
 }
 
 .title {
-    font-size: 20px;
-    letter-spacing: 4px;
-    font-family: BebasNeueBold;
-    color: $liteflix-green;
-    margin-bottom: 48px;
+  color: $liteflix-green;
+  font-family: BebasNeueBold;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 48px;
+
+  @include sm {
+    margin: 100px 0 72px;
+  }
 }
 
 .closeButton {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    cursor: pointer;
+  cursor: pointer;
+  height: 15px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 15px;
 }
 
 .input {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
+
+  @include sm {
+    margin-bottom: 96px;
+  }
+}
+
+.uploadButton {
+  margin-bottom: 24px;
 }
