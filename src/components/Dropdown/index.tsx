@@ -18,7 +18,6 @@ const Dropdown = ({ className, options, setOption }: Props) => {
   const [showDropdown, setshowDropdown] = useState(false);
 
   const handleShowDropdown = () => {
-    console.log('click');
     setshowDropdown(!showDropdown);
   };
 

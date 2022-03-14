@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
-
-// import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';
@@ -19,10 +18,32 @@ const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
   const { data } = useFetch(url);
 
-  // const [myMovies] = useLocalStorage('h', '');
-  // console.log(myMovies);
+  const [myMovies] = useLocalStorage('userMovies', '');
 
   const [movieCategory, setMovieCategory] = useState('popular');
+
+  const moviesList = useMemo(() => {
+    if (data) {
+      return movieCategory === 'popular'
+        ? data.results.slice(1, 5)
+        : JSON.parse(myMovies || '[]');
+    }
+  }, [data, movieCategory, myMovies]);
+
+  const renderMovies = (data: []) => {
+    return data.map((movie: any) => (
+      <MovieThumbnail
+        key={movie.id || movie.img}
+        title={movie.title}
+        imgUrl={
+          movie.backdrop_path
+            ? `${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`
+            : movie.img
+        }
+        className={styles.movie}
+      />
+    ));
+  };
 
   return (
     <>
@@ -55,19 +76,7 @@ const Home = () => {
                 className={styles.dropdown}
                 setOption={setMovieCategory}
               />
-              <div className={styles.movies}>
-                {movieCategory === 'popular' &&
-                  data.results
-                    .slice(1, 5)
-                    .map((movie: any) => (
-                      <MovieThumbnail
-                        key={movie.id}
-                        title={movie.title}
-                        imgUrl={`${IMG_URL}${IMG_SIZES.w300}/${movie.backdrop_path}`}
-                        className={styles.movie}
-                      />
-                    ))}
-              </div>
+              <div className={styles.movies}>{renderMovies(moviesList)}</div>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import FileInput from '../FileInput';
 import TextInput from '../TextInput';
 
 import closeButton from '../../assets/img/close.svg';
+import logo from '../../assets/img/liteflix-logo.svg';
 
 import styles from './index.module.scss';
 
@@ -21,7 +22,8 @@ interface Props {
 const Modal = ({ isVisible, onClose }: Props) => {
   const [title, setTitle] = useState('');
   const [img, setImg] = useState('');
-  const [, setValue] = useLocalStorage(title, '');
+  const [userMovies, setUserMovies] = useLocalStorage('userMovies', '');
+  const [isUploaded, setIsUploaded] = useState(false);
 
   useEffect(() => {
     const body = document.querySelector('body');
@@ -29,7 +31,9 @@ const Modal = ({ isVisible, onClose }: Props) => {
   }, [isVisible]);
 
   const handleClick = () => {
-    setValue(img);
+    const parsedMovies = JSON.parse(userMovies || '[]');
+    setUserMovies(JSON.stringify([...parsedMovies, { title, img }]));
+    setIsUploaded(true);
   };
 
   const handleFileUpload = (convertedFile: string) => {
@@ -38,6 +42,11 @@ const Modal = ({ isVisible, onClose }: Props) => {
 
   const handleInputChange = (e: any) => {
     setTitle(e.target.value);
+  };
+
+  const handleClose = (e: any) => {
+    setIsUploaded(false);
+    onClose(e);
   };
 
   return (
@@ -49,29 +58,37 @@ const Modal = ({ isVisible, onClose }: Props) => {
               <img
                 src={closeButton}
                 className={styles.closeButton}
-                onClick={onClose}
+                onClick={handleClose}
                 alt="Cerrar"
               />
             )}
-            <p className={styles.title}>Agregar película</p>
-            <FileInput
-              className={styles.input}
-              accept="image/png, image/jpeg"
-              getTransformedFile={handleFileUpload}
-            />
-            <TextInput
-              className={styles.input}
-              placeholder="Título"
-              onChange={handleInputChange}
-            />
+            {isUploaded ? (
+              <>
+                <img src={logo} alt="Liteflix logo" />
+              </>
+            ) : (
+              <>
+                <p className={styles.title}>Agregar película</p>
+                <FileInput
+                  className={styles.input}
+                  accept="image/png, image/jpeg"
+                  getTransformedFile={handleFileUpload}
+                />
+                <TextInput
+                  className={styles.input}
+                  placeholder="Título"
+                  onChange={handleInputChange}
+                />
+              </>
+            )}
             <Button
-              text="Subir Película"
-              onClick={handleClick}
+              text={isUploaded ? 'Ir a home' : 'Subir Película'}
+              onClick={isUploaded ? handleClose : handleClick}
               disabled={!img || !title}
               className={styles.uploadButton}
             />
             {isMobile && (
-              <Button text="Salir" onClick={onClose} variant="outlined" />
+              <Button text="Salir" onClick={handleClose} variant="outlined" />
             )}
           </div>
         </div>
