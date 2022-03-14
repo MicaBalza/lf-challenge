@@ -5,11 +5,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   position: relative;
   width: 100%;
 
   @include sm {
+    height: 100vh;
+
     &::after {
       background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
       bottom: 0;
