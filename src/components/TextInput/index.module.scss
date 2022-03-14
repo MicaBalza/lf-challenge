@@ -1,14 +1,14 @@
 @import '../../scss/variables/colors';
 
 .input {
-    all: unset;
-    border-bottom: 1px solid $white;
-    padding-bottom: 8px;
-    color: $white;
+  all: unset;
+  border-bottom: 1px solid $white;
+  color: $white;
+  padding-bottom: 8px;
 
-    &::placeholder {
-        color: $white;
-        font-size: 16px;
-        letter-spacing: 4px;
-    }
+  &::placeholder {
+    color: $white;
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
 }

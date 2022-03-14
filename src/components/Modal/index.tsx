@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { isMobile } from 'react-device-detect';
 
-import Button from '../Button';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import FileInput from '../FileInput';
 import TextInput from '../TextInput';
+import Button from '../Button';
 
 import { close, liteflixLogo } from '../../assets/img';
-
 import styles from './index.module.scss';
 
 interface Props {

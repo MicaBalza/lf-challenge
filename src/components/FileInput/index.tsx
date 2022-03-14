@@ -1,9 +1,8 @@
 import { ChangeEvent, HTMLProps, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 
-import ProgressBar from '../ProgressBar';
-
 import { imageUploaded } from '../../utils/convertBase64';
+import ProgressBar from '../ProgressBar';
 
 import styles from './index.module.scss';
 
@@ -21,23 +20,26 @@ const FileInput = ({ className, accept, getTransformedFile }: Props) => {
     setIsFilePicked(true);
   };
 
-  const labelText = isMobile ? (
-    <span>Agregá un archivo</span>
-  ) : (
-    <>
-      <span className="bold">Agregá un archivo</span> o arrastralo y soltalo
-      aquí
-    </>
-  );
+  const renderLabelText = () => {
+    if (isMobile) {
+      return <span>Agregá un archivo</span>;
+    }
+    return (
+      <>
+        <span className="bold">Agregá un archivo</span> o arrastralo y soltalo
+        aquí
+      </>
+    );
+  };
 
   return (
     <div className={className}>
       {isFilePicked ? (
         <ProgressBar />
       ) : (
-        <label className={styles.input}>
+        <label className={styles.container}>
           <input type="file" accept={accept} onChange={handleChange} />
-          {labelText}
+          {renderLabelText()}
         </label>
       )}
     </div>

@@ -1,5 +1,4 @@
 import { playCircle } from '../../assets/img';
-
 import styles from './index.module.scss';
 
 interface Props {

@@ -1,13 +1,12 @@
 import { useMemo, useState } from 'react';
+
 import { useFetch } from '../../hooks/useFetch';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-
 import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';
 import MovieThumbnail from '../../components/MovieThumbnail';
 
 import { plus, play } from '../../assets/img';
-
 import styles from './index.module.scss';
 
 import { IMG_URL, IMG_SIZES } from '../../constants/imagesConfig';

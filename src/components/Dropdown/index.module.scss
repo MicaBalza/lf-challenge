@@ -11,6 +11,18 @@
   text-align: center;
   width: 100%;
 
+  .label {
+    position: relative;
+
+    &::after {
+      bottom: 2px;
+      content: url(../../assets/img/arrow-down.svg);
+      font-family: BebasNeueBold;
+      position: absolute;
+      right: -18px;
+    }
+  }
+
   @include sm {
     position: relative;
   }
@@ -58,17 +70,5 @@
     &::before {
       content: none;
     }
-  }
-}
-
-.label {
-  position: relative;
-
-  &::after {
-    bottom: 2px;
-    content: url(../../assets/img/arrow-down.svg);
-    font-family: BebasNeueBold;
-    position: absolute;
-    right: -18px;
   }
 }

@@ -13,7 +13,6 @@ import {
   bell,
   profileAvatar,
 } from '../../assets/img';
-
 import styles from './index.module.scss';
 
 const Navbar = () => {

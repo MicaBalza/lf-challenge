@@ -1,29 +1,23 @@
 @import '../../scss/variables/colors';
 
 .label {
-    text-align: left;
-    color: $white;
-    letter-spacing: 4px;
-    margin-bottom: 16px;
+  color: $white;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+  text-align: left;
 }
 
-.containerStyles {
-    height: 4px;
-    width: 100%;
-    background-color: rgba($white, .5);
-    position: relative;
-  }
+.container {
+  background-color: rgba($white, 0.5);
+  height: 4px;
+  position: relative;
+  width: 100%;
 
-.fillerStyles {
-    position: absolute;
-    height: 10px;
+  .filler {
     background-color: $liteflix-green;
+    height: 10px;
+    position: absolute;
     top: -4px;
     transition: width 0.05s ease-in-out;
   }
-
-.labelStyles {
-    padding: 5;
-    color: white;
-    font-weight: bold;
-  }
+}

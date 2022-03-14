@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { check } from '../../assets/img';
-
 import styles from './index.module.scss';
 
 interface Props {
