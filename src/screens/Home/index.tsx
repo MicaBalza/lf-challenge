@@ -5,6 +5,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import Button from '../../components/Button';
 import Dropdown from '../../components/Dropdown';
 import MovieThumbnail from '../../components/MovieThumbnail';
+import Spinner from '../../components/Spinner';
 
 import { plus, play } from '../../assets/img';
 import styles from './index.module.scss';
@@ -14,7 +15,7 @@ import { DROPDOWN_OPTIONS } from './constants';
 
 const Home = () => {
   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`;
-  const { data } = useFetch(url);
+  const { data, loading } = useFetch(url);
 
   const [myMovies] = useLocalStorage('userMovies', '');
 
@@ -31,7 +32,7 @@ const Home = () => {
   const renderMovies = (data: []) => {
     return data.map((movie: any) => (
       <MovieThumbnail
-        key={movie.id || movie.img}
+        key={movie.id || movie.title}
         title={movie.title}
         imgUrl={
           movie.backdrop_path
@@ -47,6 +48,11 @@ const Home = () => {
 
   return (
     <>
+      {loading && (
+        <div className={styles.splash}>
+          <Spinner />
+        </div>
+      )}
       {data && (
         <div
           className={styles.home}
