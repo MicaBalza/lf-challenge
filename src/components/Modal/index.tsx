@@ -21,6 +21,7 @@ const Modal = ({ isVisible, onClose }: Props) => {
   const [title, setTitle] = useState('');
   const [img, setImg] = useState('');
   const [userMovies, setUserMovies] = useLocalStorage('userMovies', '');
+  const [isUploadComplete, setIsUploadComplete] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
 
   useEffect(() => {
@@ -38,12 +39,19 @@ const Modal = ({ isVisible, onClose }: Props) => {
     setImg(convertedFile);
   };
 
+  const handleUploadComplete = () => {
+    setIsUploadComplete(true);
+  };
+
   const handleInputChange = (e: any) => {
     setTitle(e.target.value);
   };
 
   const handleClose = (e: any) => {
+    setIsUploadComplete(false);
     setIsUploaded(false);
+    setTitle('');
+    setImg('');
     onClose(e);
   };
 
@@ -62,7 +70,15 @@ const Modal = ({ isVisible, onClose }: Props) => {
             )}
             {isUploaded ? (
               <>
-                <img src={liteflixLogo} alt="Liteflix logo" />
+                <img
+                  src={liteflixLogo}
+                  alt="Liteflix logo"
+                  className={styles.logo}
+                />
+                <p className={styles.header}>¡Felicitaciones!</p>
+                <p className={styles.subheader}>
+                  {title} fue correctamente subida.
+                </p>
               </>
             ) : (
               <>
@@ -71,6 +87,7 @@ const Modal = ({ isVisible, onClose }: Props) => {
                   className={styles.input}
                   accept="image/png, image/jpeg"
                   getTransformedFile={handleFileUpload}
+                  isCompleted={handleUploadComplete}
                 />
                 <TextInput
                   className={styles.input}
@@ -81,8 +98,9 @@ const Modal = ({ isVisible, onClose }: Props) => {
             )}
             <Button
               text={isUploaded ? 'Ir a home' : 'Subir Película'}
+              variant="contained-light"
               onClick={isUploaded ? handleClose : handleClick}
-              disabled={!img || !title}
+              disabled={!isUploadComplete || !title}
               className={styles.uploadButton}
             />
             {isMobile && (

@@ -1,3 +1,5 @@
+@import '../../scss/mixins.scss';
+
 .container {
   align-items: center;
   border: 1px dashed white;
@@ -24,5 +26,15 @@
     position: absolute;
     top: 0;
     width: 100%;
+  }
+}
+
+.uploading {
+  @include flex(start, start, column);
+
+  .cancelButton {
+    align-self: end;
+    min-width: 0;
+    padding: 20px 0;
   }
 }

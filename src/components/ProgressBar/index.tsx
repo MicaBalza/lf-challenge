@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 
 import styles from './index.module.scss';
 
-const ProgressBar = () => {
+interface Props {
+  isCompleted: () => void;
+}
+
+const ProgressBar = ({ isCompleted }: Props) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -15,6 +19,12 @@ const ProgressBar = () => {
       clearInterval(timer);
     };
   }, []);
+
+  useEffect(() => {
+    if (progress === 100) {
+      isCompleted();
+    }
+  }, [progress, isCompleted]);
 
   return (
     <>
